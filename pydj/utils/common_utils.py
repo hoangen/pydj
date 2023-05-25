@@ -1,6 +1,10 @@
-class CommonUtils(object):
+class CommonUtils:
     def __init__(self) -> None:
         pass
 
-    def add_two_numbers(self, a: int, b: int) -> int:
+    @staticmethod
+    def multiply(a: int, b: int) -> int:
+        return a * b
+
+    def add(self, a: int, b: int) -> int:
         return a + b
