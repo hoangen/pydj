@@ -8,7 +8,7 @@ version = "0.0.1"
 authors = [
   { name="Hoang Nguyen", email="hoangen@gmail.com" },
 ]
-description = "A IoC container for Python"
+description = "An IoC container for Python"
 readme = "README.md"
 requires-python = ">=3.7"
 classifiers = [
