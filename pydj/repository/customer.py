@@ -1,6 +1,8 @@
+from pydj.di.decorator import repository
 from pydj.repository.jpa import JpaRepository
 
 
+@repository
 class CustomerRepository(JpaRepository):
     def __init__(self) -> None:
         super().__init__()

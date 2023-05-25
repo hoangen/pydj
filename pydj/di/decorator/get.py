@@ -1,6 +1,4 @@
-class Rest:
-    """Decorator for a REST controller"""
-
+class get:
     def __init__(self, cls):
         self.cls = cls
 

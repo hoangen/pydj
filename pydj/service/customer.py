@@ -1,11 +1,13 @@
-from pydj.decorator import Service
+from pydj.di.decorator import service
 from pydj.repository import CustomerRepository
 
 
-@Service
+@service
 class CustomerService:
     """This is a service for handling customers"""
-    customer_repository: CustomerRepository
+
+    def __init__(self, customer_repository: CustomerRepository):
+        self.customer_repository = customer_repository
 
     def find_by_id(self, id: int) -> None:
         """Find customer by id

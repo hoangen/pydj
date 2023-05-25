@@ -1,4 +1,4 @@
-class Get:
+class service:
     def __init__(self, cls):
         self.cls = cls
 

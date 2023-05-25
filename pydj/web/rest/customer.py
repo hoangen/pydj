@@ -1,11 +1,12 @@
-from pydj.decorator import Get, Rest
+from pydj.di.decorator import controller, get
 from pydj.service import CustomerService
 
 
-@Rest("/api")
+@controller("/api")
 class CustomerApi:
-    customer_service: CustomerService
+    def __init__(self, customer_service: CustomerService):
+        self.customer_service = customer_service
 
-    @Get("/customers")
+    @get("/customers")
     def get_all(self) -> None:
         self.customer_service.find_by_id(1)

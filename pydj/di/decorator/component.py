@@ -1,4 +1,4 @@
-class Service:
+class component:
     def __init__(self, cls):
         self.cls = cls
 
