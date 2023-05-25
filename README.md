@@ -4,8 +4,10 @@ I don't how this PyDJ framework will help, but let's try. We need a better name 
 
 ### Set up
 
-`python -m venv env`
-`source env/bin/activate`
+```
+python -m venv env
+source env/bin/activate
+```
 
 ### Run tests
 
