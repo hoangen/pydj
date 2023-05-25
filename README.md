@@ -1,6 +1,6 @@
 # Welcome to Python Dependency Injection Framework
 
-I don't how this PyDJ framework will help, but let's try.
+I don't how this PyDJ framework will help, but let's give it a try.
 
 ### Set up
 
@@ -17,3 +17,7 @@ pip install -r requirements.txt
 ### Build
 
 `python -m build`
+
+### Run
+
+`python app.py`
