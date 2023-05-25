@@ -21,3 +21,12 @@ pip install -r requirements.txt
 ### Run
 
 `python app.py`
+
+And you will see:
+
+```
+running server at http://127.0.0.1:150988
+happy coding...
+```
+
+## Stay Tuned Please

@@ -1,5 +1,5 @@
 class PyDJ:
-    def __init__(self, port=10000):
+    def __init__(self, port=150988):
         self.port = port
 
     def run(self):
