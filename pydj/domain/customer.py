@@ -1,5 +1,14 @@
-class Customer:
-    """Customer model"""
+from dataclasses import dataclass
 
-    def __init__(self):
-        pass
+
+@dataclass
+class Customer:
+    """Class for customer domain."""
+    name: str
+    age: int
+    balance: float
+    rate: float
+    address: str
+
+    def total_amount(self) -> float:
+        return self.balance * self.rate
