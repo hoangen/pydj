@@ -1,4 +1,5 @@
-from pydj.di.decorator import controller, get
+from pydj.di.decorator import controller
+from pydj.di.decorator.rest import get
 from pydj.service import CustomerService
 
 
