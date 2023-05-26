@@ -1,6 +1,10 @@
 class repository:
-    def __init__(self, cls):
-        self.cls = cls
+    """repository decorator"""
 
-    def __call__(self):
+    def __init__(self):
         pass
+
+    def __call__(self, cls: type):
+        print(
+            f'calling repository decorator for class {cls}')
+        return cls

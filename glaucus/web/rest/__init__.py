@@ -1,0 +1,1 @@
+from glaucus.web.rest.customer import CustomerController as CustomerController

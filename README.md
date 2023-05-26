@@ -18,9 +18,13 @@ pip install -r requirements.txt
 
 `python -m build`
 
+### Install
+
+`pip install --force-reinstall dist/pydj-0.0.1-py3-none-any.whl`
+
 ### Run
 
-`python app.py`
+`python main.py`
 
 And you will see:
 
@@ -29,4 +33,4 @@ running server at http://127.0.0.1:150988
 happy coding...
 ```
 
-## Stay Tuned Please
+## Stay Tuned!!!

@@ -1,6 +1,10 @@
 class service:
-    def __init__(self, cls):
-        self.cls = cls
+    """service decorator"""
 
-    def __call__(self):
+    def __init__(self):
         pass
+
+    def __call__(self, cls: type):
+        print(
+            f'calling service decorator for class {cls}')
+        return cls

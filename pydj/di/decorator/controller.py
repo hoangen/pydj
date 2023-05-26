@@ -1,8 +1,13 @@
-class controller:
-    """Decorator for a controller"""
+from . import component
 
-    def __init__(self, cls):
-        self.cls = cls
 
-    def __call__(self):
-        pass
+class controller(component):
+    """controller decorator"""
+
+    def __init__(self, endpoint='/'):
+        self.endpoint = endpoint
+
+    def __call__(self, cls: type):
+        print(
+            f'calling controller decorator for class {cls} with endpoint {self.endpoint}')
+        return cls

@@ -1,8 +1,8 @@
+from glaucus.repository import CustomerRepository
 from pydj.di.decorator import service
-from pydj.repository import CustomerRepository
 
 
-@service
+@service()
 class CustomerService:
     """This is a service for handling customers"""
 
