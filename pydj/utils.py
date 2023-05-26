@@ -1,3 +1,4 @@
+import importlib
 import sys
 from pkgutil import iter_modules
 from typing import List
@@ -25,6 +26,14 @@ def find_modules(path: str) -> List[str]:
 
 def get_cls_name(cls: type) -> str:
     return cls.__module__ + '.' + cls.__qualname__
+
+
+def get_cls_from_name(cls_name: str) -> type:
+    try:
+        mod_path, name = cls_name.rsplit('.', 1)
+        return getattr(importlib.import_module(mod_path), name)
+    except ValueError:
+        return getattr(importlib.import_module('__main__'), cls_name)
 
 
 def add_two_numbers(a: int, b: int) -> int:

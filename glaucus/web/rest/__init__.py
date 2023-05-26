@@ -1,1 +1,1 @@
-from glaucus.web.rest.customer import CustomerController as CustomerController
+from .customer import CustomerController as CustomerController

@@ -1,5 +1,6 @@
 import logging
 
+from glaucus.web.rest import CustomerController
 from pydj import PyDJ
 from pydj.di.globals import registry
 
@@ -17,6 +18,12 @@ if __name__ == '__main__':
 
     if DEBUG:
         for info in registry:
-            print(info)
+            logging.debug(info)
 
-    print(app.ctx.xml())
+    ctx = app.ctx
+    print(ctx.xml())
+
+    customerController: CustomerController = ctx.get_bean(CustomerController)
+    print(f'{customerController.customer_service.customer_repository.timeout}')
+
+    assert customerController.customer_service.customer_repository.timeout == 5

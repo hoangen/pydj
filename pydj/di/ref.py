@@ -40,7 +40,5 @@ class IdRef(Ref):
 
 
 class ClsRef(Ref):
-    def __init__(self, tgt: Union[type, str]):
-        if isinstance(tgt, type):
-            tgt = get_cls_name(tgt)
+    def __init__(self, tgt: str):
         super(ClsRef, self).__init__(RefType.Cls, tgt)

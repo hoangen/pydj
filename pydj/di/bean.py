@@ -1,7 +1,7 @@
 
 import enum
-import xml
 from typing import Any, List, Union
+from xml.dom.minidom import Document
 
 from .ref import Ref
 
@@ -38,8 +38,8 @@ class Property:
         self.type = type
         self.value = value
 
-    def to_xml(self):
-        elem = xml.dom.minidom.Document().createElement('property')
+    def xml(self):
+        elem = Document().createElement('property')
         elem.setAttribute("name", self.name)
 
         if self.type is PropertyType.Ref:
@@ -53,7 +53,7 @@ class Property:
         return elem
 
     def __repr__(self):
-        return self.to_xml().toxml()
+        return self.xml().toxml()
 
 
 class Bean:
@@ -64,3 +64,12 @@ class Bean:
         self.cls = cls
         self.params = params
         self.scope = scope
+
+    def xml(self):
+        bean = Document().createElement('bean')
+        bean.setAttribute("cls", self.cls)
+        bean.setAttribute("scope", self.scope)
+
+        for param in self.params:
+            bean.appendChild(param.xml())
+        return bean
