@@ -24,7 +24,7 @@ pip install -r requirements.txt
 
 ### Run
 
-`python main.py`
+`python demo.py`
 
 And you will see:
 
