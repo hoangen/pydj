@@ -18,13 +18,13 @@ pip install -r requirements.txt
 
 `python -m build`
 
-### Install
+### Install (optional)
 
 `pip install --force-reinstall dist/pydj-0.0.1-py3-none-any.whl`
 
 ### Run
 
-`python demo.py`
+`python showcase.py`
 
 And you will see:
 
@@ -34,3 +34,13 @@ happy coding...
 ```
 
 ## Stay tuned!
+
+I'm doing it as fast as I can.
+
+## Missing Features
+
+- proxy object for method calls
+- prototype scope
+- circular dependency
+- support @bean, @configuration annotation
+- support REST annotation @rest, @get, @put, @post, @patch, @delete
