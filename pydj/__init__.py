@@ -1,1 +1,1 @@
-from pydj.pydj import PyDJ as PyDJ
+from pydj.app import PyDJ as PyDJ

@@ -1,10 +1,29 @@
+
 import enum
-import json
+import xml
+from typing import Any, List, Union
 
-import xml.dom.minidom
-from typing import Union, Any, List
+from .ref import Ref
 
-from pydj.di.ref import Ref
+
+class Scope(str, enum.Enum):
+    SINGLETON = "singleton"
+    PROTOTYPE = "prototype"
+    REQUEST = "request"
+    SESSION = "session"
+    APPLICATION = "application"
+    WEBSOCKET = "websocket"
+
+
+class RegisterInfo:
+    def __init__(self,
+                 cls: type,
+                 scope: Scope = Scope.SINGLETON):
+        self.cls = cls
+        self.scope = scope
+
+    def __str__(self) -> str:
+        return f'RegisterInfo({self.cls}, {self.scope})'
 
 
 class PropertyType(str, enum.Enum):
@@ -38,26 +57,10 @@ class Property:
 
 
 class Bean:
-
     def __init__(self,
                  cls: str,
-                 id: str,
-                 singleton: bool,
-                 params: List[Property]):
+                 params: List[Property],
+                 scope: Scope):
         self.cls = cls
         self.params = params
-        self.id = id
-        self.singleton = singleton
-
-    def to_xml(self):
-        bean = xml.dom.minidom.Document().createElement('bean')
-        bean.setAttribute("cls", self.cls)
-        bean.setAttribute("id", self.id)
-        bean.setAttribute("singleton", json.dumps(self.singleton))
-
-        for param in self.params:
-            bean.appendChild(param.to_xml())
-        return bean
-
-    def __repr__(self):
-        return self.to_xml().toxml()
+        self.scope = scope

@@ -1,10 +1,15 @@
-class repository:
+import logging
+
+from . import component
+
+
+class repository(component):
     """repository decorator"""
 
-    def __init__(self):
-        pass
+    def __init__(self, scope: str = "singleton"):
+        super().__init__(scope)
 
     def __call__(self, cls: type):
-        print(
+        logging.debug(
             f'calling repository decorator for class {cls}')
-        return cls
+        return super().__call__(cls)

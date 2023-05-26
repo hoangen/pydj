@@ -18,8 +18,8 @@ def find_modules(path: str) -> List[str]:
             for info in iter_modules([pkgpath]):
                 if not info.ispkg:
                     modules.append(pkg + '.' + info.name)
-
-    modules = [path + '.' + module for module in modules]
+    if path != '.':
+        modules = [path + '.' + module for module in modules]
     return modules
 
 

@@ -1,25 +1,30 @@
+import enum
 import importlib
-from typing import List
+from typing import Any, Dict, List, Optional
+from xml.dom.minidom import parseString
 
-from pydj.di.utils import find_modules, get_cls_name
+from pydj.utils import find_modules, get_cls_name
+
+from .bean import Bean
 
 
 class ApplicationContext:
-    """Application Context for storing beans
+    """
+    Application Context for storing beans
 
     modules: list of modules for component scan
     """
 
-    def __init__(self, modules: List[str] = []):
-        self.beans = {}
-        self.modules = modules
+    def __init__(self, modules: List[str] = ['.']):
+        self._cls_beans: Dict[str, Bean] = {}
 
-        self.__scan_components(modules)
+        self._modules = modules
+        self._scan_components(modules)
 
     def instance_by_cls(self, cls):
         return self.beans[cls]
 
-    def __scan_components(self, modules_path):
+    def _scan_components(self, modules_path: List[str]):
         discovered_modules = []
         for path in modules_path:
             discovered_modules.extend(find_modules(path))
@@ -28,7 +33,10 @@ class ApplicationContext:
             importlib.import_module(module)
 
     def __str__(self) -> str:
-        return '<beans><bean></bean></beans>'
+        return parseString('<beans><bean></bean></beans>').toprettyxml()
+    
+    def xml(self):
+        return parseString('<beans><bean></bean></beans>').toprettyxml()
 
      # def register_group(self, clses: List[type]):
     #     for cls in clses:

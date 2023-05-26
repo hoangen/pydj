@@ -1,13 +1,15 @@
+import logging
+
 from . import component
 
 
 class controller(component):
     """controller decorator"""
 
-    def __init__(self, endpoint='/'):
-        self.endpoint = endpoint
+    def __init__(self, scope: str = "singleton"):
+        super().__init__(scope)
 
     def __call__(self, cls: type):
-        print(
-            f'calling controller decorator for class {cls} with endpoint {self.endpoint}')
-        return cls
+        logging.debug(
+            f'calling controller decorator for class {cls}')
+        return super().__call__(cls)

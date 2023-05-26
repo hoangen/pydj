@@ -1,3 +1,5 @@
+import logging
+
 class bean:
     """bean decorator"""
 
@@ -5,5 +7,5 @@ class bean:
         pass
 
     def __call__(self, func, *args, **kwargs):
-        print(
+        logging.debug(
             f'calling bean decorator for function {func} with params {args}')

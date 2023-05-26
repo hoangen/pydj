@@ -1,10 +1,12 @@
 from typing import List
 
-from pydj.di.application_context import ApplicationContext
+from pydj.di.context import ApplicationContext
 
 
 class PyDJ:
-    def __init__(self, port: int = 150988, modules: List[str] = ['app']):
+    def __init__(self,
+                 port: int = 150988,
+                 modules: List[str] = ['.']):
         self.port = port
         self.ctx = ApplicationContext(modules)
 

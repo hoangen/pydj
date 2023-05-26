@@ -1,12 +1,11 @@
-from glaucus.repository.jpa import JpaRepository
+from glaucus.repository.crud import CrudRepository
 from pydj.di.decorator import repository
 
+from ..db.datasource import DataSource
 
-@repository()
-class CustomerRepository(JpaRepository):
-    def __init__(self) -> None:
-        super().__init__()
+
+@repository(scope="singleton")
+class CustomerRepository(CrudRepository):
+    def __init__(self, db: DataSource) -> None:
+        super().__init__(db)
         print(f'init {self.__class__.__name__}')
-
-    def find_by_id(self, id: int) -> None:
-        print(f'{self.__class__.__name__}.find_by_id({id})')

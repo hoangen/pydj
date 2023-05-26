@@ -1,6 +1,6 @@
 import unittest
 
-import pydj.di.utils as utils
+import pydj.utils as utils
 
 
 class TestUtils(unittest.TestCase):

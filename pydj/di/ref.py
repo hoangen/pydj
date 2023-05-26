@@ -2,7 +2,7 @@ import abc
 import enum
 from typing import Union
 
-from pydj.di.utils import get_cls_name
+from pydj.utils import get_cls_name
 
 
 class RefType(str, enum.Enum):
